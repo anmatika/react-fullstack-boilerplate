@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
-const webpackDevServer = require('webpack-dev-server');
+const WebpackDevServer = require('webpack-dev-server');
 
 const api = require('./api');
 const webpackConfig = require('../client/dev.webpack.config.js');
@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Listening on port :" + port));
 
 const compiler = webpack(webpackConfig);
-const server = new webpackDevServer(compiler, {hot: true});
+const server = new WebpackDevServer(compiler, {hot: true});
 server.listen(8080);
 
 app.get('*', (req, res) => {

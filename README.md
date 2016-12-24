@@ -28,8 +28,9 @@ The components in the ```/components``` folder should be structured as such:
 Components should not behave in opinionated ways in regards to their usage context. 
 Positioning of the components and similar concerns should always be handled by the container.
 
-Furthermore, always split components into container and view components according to their 
-responsibilities. A container component should only be concerned with acquiring and passing data
+Group components according to their usage types and always split components into container and view 
+components according to their responsibilities. 
+A container component should only be concerned with acquiring and passing data
 to the view component, whose concern regards rendering the received data -- these concerns should
 rarely be covered by the same component.
 
