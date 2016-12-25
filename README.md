@@ -4,7 +4,8 @@ This project is intended as a lightweight boilerplate for getting started with f
 NodeJS development using React & friends on the client-side.
 
 ## Features
-*  Server with basic API
+*  Complete skeleton for full-stack application development 
+*  Both API and bundle served from same port
 *  React Hot Loader 3
 *  webpack 2 with preconfigured dev environment
 *  Scalable folder structure
@@ -38,7 +39,8 @@ rarely be covered by the same component.
 ## To-do:
 *  Demonstrate basic client/server interaction
 *  Sass/Less/whatever support
-*  Use same port for client/server?
+*  react-router
+*  ~~Use same port for client/server?~~
 *  Production build
 *  DB integration?
 *  redux?
