@@ -2,13 +2,13 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const srcDir = path.resolve(__dirname);
+const srcDir = __dirname;
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: 'eval-cheap-module-source-map',
     entry: [
+        'webpack-hot-middleware/client',
         'react-hot-loader/patch',
-        "webpack-dev-server/client?http://localhost:8080/",
         "webpack/hot/only-dev-server",
         path.join(srcDir, "Application", "index.js")
     ],
@@ -35,7 +35,8 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"'
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
     ],
     performance: {
         hints: false

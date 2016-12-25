@@ -4,7 +4,8 @@ This project is intended as a lightweight boilerplate for getting started with f
 NodeJS development using React & friends on the client-side.
 
 ## Features
-*  Server with basic API
+*  Complete skeleton for full-stack application development 
+*  Both API and bundle served from same port
 *  React Hot Loader 3
 *  webpack 2 with preconfigured dev environment
 *  Scalable folder structure
@@ -28,8 +29,9 @@ The components in the ```/components``` folder should be structured as such:
 Components should not behave in opinionated ways in regards to their usage context. 
 Positioning of the components and similar concerns should always be handled by the container.
 
-Furthermore, always split components into container and view components according to their 
-responsibilities. A container component should only be concerned with acquiring and passing data
+Group components according to their usage types and always split components into container and view 
+components according to their responsibilities. 
+A container component should only be concerned with acquiring and passing data
 to the view component, whose concern regards rendering the received data -- these concerns should
 rarely be covered by the same component.
 
@@ -37,7 +39,8 @@ rarely be covered by the same component.
 ## To-do:
 *  Demonstrate basic client/server interaction
 *  Sass/Less/whatever support
-*  Use same port for client/server?
+*  react-router
+*  ~~Use same port for client/server?~~
 *  Production build
 *  DB integration?
 *  redux?
