@@ -2,9 +2,9 @@ import {AppContainer} from "react-hot-loader";
 import React from "react";
 import {render} from "react-dom";
 import {createStore, applyMiddleware, compose} from "redux";
-import {middleware as reduxPackMiddleware} from "redux-pack";
-import thunk from "redux-thunk";
 import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+import {middleware as reduxPackMiddleware} from "redux-pack";
 import rootReducer from "../reducers";
 import Main from "../views/Main";
 
@@ -29,12 +29,5 @@ render(reactRoot, rootElement);
 
 if (module.hot) {
     module.hot.accept('../views/Main', () =>
-        render(
-            <Provider store={store}>
-                <AppContainer>
-                    <Main />
-                </AppContainer>
-            </Provider>,
-            rootElement)
-    );
+        render(Object.assign({}, reactRoot), rootElement));
 }
