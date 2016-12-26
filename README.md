@@ -8,6 +8,7 @@ NodeJS development using React & friends on the client-side.
 *  Both API and bundle served from same port
 *  React Hot Loader 3
 *  webpack 2 with preconfigured dev environment
+*  Sass stylesheets
 *  Scalable folder structure
 *  .. more to come
 
@@ -38,7 +39,7 @@ rarely be covered by the same component.
 
 ## To-do:
 *  Demonstrate basic client/server interaction
-*  Sass/Less/whatever support
+*  ~~Sass support~~
 *  react-router
 *  ~~Use same port for client/server?~~
 *  Production build
