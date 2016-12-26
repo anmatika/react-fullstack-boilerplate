@@ -1,3 +1,9 @@
+## 0.4.0 (..)
+*  Add Redux support
+*  Add support for thunks through redux-pack
+*  Integrate with Redux DevTools chrome plugin
+*  Update example to demonstrate async actions and load delays
+
 ## 0.3.0 (26.12.16)
 *  Add Sass stylesheet support
 
