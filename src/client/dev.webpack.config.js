@@ -18,14 +18,20 @@ module.exports = {
         filename: "bundle.js"
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            include: srcDir,
-            loader: 'babel-loader',
-            query: {
-                cacheDirectory: true
+        rules: [
+            {
+                test: /\.js$/,
+                include: srcDir,
+                loader: 'babel-loader',
+                query: {
+                    cacheDirectory: true
+                }
+            }, {
+                test: /\.scss$/,
+                include: srcDir,
+                loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
             }
-        }]
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin({
