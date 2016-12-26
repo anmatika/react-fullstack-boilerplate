@@ -1,0 +1,16 @@
+.custom-button {
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  background: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background: #EEE;
+}
+
+.custom-button:active {
+  background: #CCC;
+}
