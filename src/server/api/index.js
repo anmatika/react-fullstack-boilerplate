@@ -6,6 +6,6 @@ router.get('/', (req, res) =>
 
 const searchParam = 'search';
 router.get('/:' + searchParam, (req, res) =>
-    setTimeout(() => res.json("Hello, world: " + req.params[searchParam]), 2000));
+    setTimeout(() => res.json("Parameter value: " + req.params[searchParam]), 2000));
 
 module.exports = router;

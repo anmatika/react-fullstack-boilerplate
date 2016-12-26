@@ -1,13 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
 import CustomButton from "../../components/input/CustomButton";
-import {loadFoo} from "../../actions";
+import {requestResponseFromAPI} from "../../actions";
 
-const MainView = ({state, loadFoo}) =>
+const MainView = ({isLoading, error, foo, loadFoo}) =>
     <div>
-        Hello, world! {JSON.stringify(state)}
+        {foo}
         <br/>
-        <CustomButton text="Click me!" onClick={() => console.log(loadFoo(1000))}/>
+        <CustomButton
+            text={isLoading ? "Loading .." : "Fetch from API"}
+            onClick={() => requestResponseFromAPI(1000)}
+            disabled={isLoading}/>
     </div>;
 
-export default connect(state => ({state}), {loadFoo})(MainView);
+export default connect(state => ({...state}), {requestResponseFromAPI})(MainView);

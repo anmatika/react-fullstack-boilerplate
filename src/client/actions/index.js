@@ -1,7 +1,8 @@
-import {LOAD_FOO} from "../types";
+import {REQUEST_RESPONSE_FROM_API} from "../types";
 
-export const loadFoo = id =>
+export const requestResponseFromAPI = id =>
     ({
-        type: LOAD_FOO,
-        promise: fetch('/api/HELLO_WORLD_' + id).then(res => res.json())
+        type: REQUEST_RESPONSE_FROM_API,
+        promise: fetch('/api/HELLO_WORLD_' + id)
+            .then(res => res.json())
     });

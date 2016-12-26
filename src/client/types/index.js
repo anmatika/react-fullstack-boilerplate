@@ -1,1 +1,1 @@
-export const LOAD_FOO = 'LOAD_FOO';
+export const REQUEST_RESPONSE_FROM_API = 'REQUEST_RESPONSE_FROM_API';
