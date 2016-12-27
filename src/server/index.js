@@ -8,6 +8,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const api = require('./api');
 const webpackConfig = require('../client/dev.webpack.config.js');
 const buildPath = path.resolve(__dirname, "..", "client", "build");
+const generatedIndexHtmlPath = path.resolve(buildPath, 'index.html');
 
 const compiler = webpack(webpackConfig);
 const devMiddleware = webpackDevMiddleware(compiler, {
@@ -29,11 +30,8 @@ app.use('/api', api);
 app.use(devMiddleware);
 app.use(webpackHotMiddleware(compiler));
 
-app.get('*', (req, res) => {
-    const generatedIndexHtmlPath = path.resolve(buildPath, 'index.html');
-    res.write(devMiddleware.fileSystem.readFileSync(generatedIndexHtmlPath));
-    res.end();
-});
+app.get('*', (req, res) =>
+    res.send(devMiddleware.fileSystem.readFileSync(generatedIndexHtmlPath)));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Listening on port :" + port));

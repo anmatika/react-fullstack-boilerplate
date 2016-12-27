@@ -49,6 +49,9 @@ rarely be covered by the same component.
 *  favicon (through html webpack plugin)
 *  tests backend
 *  graphQL?
+*  eslint
+*  a11y
+*  autoprefixer
 *  integration with GitLab and GitHub CI?
 *  shallow rendering tests frontend..?
 *  cool utils like react-storybook, react-fix-it, webpack-bundle-analyzer, redux-bug-reporter..
