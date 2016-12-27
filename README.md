@@ -6,6 +6,7 @@ NodeJS development using React & friends on the client-side.
 ## Features
 *  Complete skeleton for full-stack application development 
 *  Both API and bundle served from same port
+*  Redux with thunk, redux-pack and DevTools chrome plugin integration
 *  React Hot Loader 3
 *  webpack 2 with preconfigured dev environment
 *  Sass stylesheets
@@ -44,9 +45,13 @@ rarely be covered by the same component.
 *  ~~Use same port for client/server?~~
 *  Production build
 *  DB integration?
-*  redux?
+*  ~~Redux~~
 *  favicon (through html webpack plugin)
 *  tests backend
+*  graphQL?
+*  eslint
+*  a11y
+*  autoprefixer
 *  integration with GitLab and GitHub CI?
 *  shallow rendering tests frontend..?
 *  cool utils like react-storybook, react-fix-it, webpack-bundle-analyzer, redux-bug-reporter..
