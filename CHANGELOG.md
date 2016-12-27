@@ -1,4 +1,4 @@
-## 0.4.0 (..)
+## 0.4.0 (27.12.16)
 *  Add Redux support
 *  Add support for thunks through redux-pack
 *  Integrate with Redux DevTools chrome plugin
