@@ -27,7 +27,7 @@ MainView.propTypes = {
   response: React.PropTypes.string,
   callApiThroughRedux: React.PropTypes.func,
   onInputChange: React.PropTypes.func,
-  inputValue: React.PropTypes.string,
+  inputValue: React.PropTypes.node,
 };
 
 export default connect(
