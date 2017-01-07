@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 
 const CustomButton = ({text, onClick, disabled}) =>
-    <button className={"custom-button" + (disabled ? " disabled-button" : "")} onClick={onClick} disabled={disabled}>
+    <button className={`custom-button${disabled ? ' disabled-button' : ''}`} onClick={onClick} disabled={disabled}>
         {text}
     </button>;
 

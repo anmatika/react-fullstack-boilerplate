@@ -22,6 +22,15 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
+                loader: 'eslint-loader',
+                include: srcDir,
+                enforce: 'pre',
+                options: {
+                    fix: true,
+                }
+            },
+            {
+                test: /\.js$/,
                 include: srcDir,
                 loader: 'babel-loader',
                 query: {

@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
                 start: s => ({...s, isLoading: true, error: null, response: null}),
                 finish: s => ({...s, isLoading: false}),
                 failure: s => ({...s, error: payload}),
-                success: s => ({...s, response: payload})
+                success: s => ({...s, response: payload}),
             });
 
         case CHANGE_INPUT_VALUE:
@@ -26,4 +26,4 @@ export default (state = initialState, action) => {
         default:
             return state;
     }
-}
+};

@@ -19,11 +19,11 @@ const store = createStore(rootReducer, enhancer);
 
 const rootElement = document.getElementById('root');
 const reactRoot =
-    <Provider store={store}>
+    (<Provider store={store}>
         <AppContainer>
             <Main />
         </AppContainer>
-    </Provider>;
+    </Provider>);
 
 render(reactRoot, rootElement);
 

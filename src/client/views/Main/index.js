@@ -7,17 +7,19 @@ import CustomInput from "../../components/input/CustomInput";
 const MainView = ({isLoading, error, response, callApiThroughRedux, onInputChange, inputValue}) =>
     <div>
         {response}
-        <br/>
+        <br />
         <CustomButton
-            text={isLoading ? "Loading .." : "Submit value to API"}
+            text={isLoading ? 'Loading ..' : 'Submit value to API'}
             onClick={() => callApiThroughRedux(inputValue)}
-            disabled={isLoading || !inputValue}/>
+            disabled={isLoading || !inputValue}
+        />
 
         <CustomInput
             type="number"
             disabled={isLoading}
             onChange={onInputChange}
-            value={inputValue}/>
+            value={inputValue}
+        />
     </div>;
 
 export default connect(
