@@ -54,25 +54,22 @@ module.exports = {
         filename: 'bundle.js',
     },
     module: {
-        module: {
-            rules: [
-                {
-                    test: /\.js$/,
-                    include: srcDir,
-                    loader: 'babel-loader',
-                },
-                {
-                    test: /\.scss$/,
-                    include: srcDir,
-                    loaders: ["style-loader", "css-loader", "sass-loader"]
-                }
-            ]
-        },
+        rules: [
+            {
+                test: /\.js$/,
+                include: srcDir,
+                loader: 'babel-loader',
+            },
+            {
+                test: /\.scss$/,
+                include: srcDir,
+                loaders: ["style-loader", "css-loader", "sass-loader"]
+            }
+        ]
     },
     plugins: [
         new HtmlWebpackPlugin(htmlWebpackConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
-        new webpack.optimize.DedupePlugin(),
         new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
         new webpack.optimize.UglifyJsPlugin(uglifyJsPluginConfig),
     ],
