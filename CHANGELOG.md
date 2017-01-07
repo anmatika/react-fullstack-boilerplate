@@ -1,3 +1,8 @@
+## 0.6.0 (07.01.17)
+*  Add eslint using airbnb's config and integrate it with dev environment
+Update codebase to comply with code style requirements
+*  Add support for .jsx file extension
+
 ## 0.5.1 (07.01.17)
 *  Fix redux example by completing partial action type renaming
 *  Update example application to better demonstrate client and server interaction through redux

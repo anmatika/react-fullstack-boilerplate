@@ -11,17 +11,29 @@ module.exports = {
         'webpack-hot-middleware/client',
         'react-hot-loader/patch',
         "webpack/hot/only-dev-server",
-        path.join(srcDir, "Application", "index.js")
+        path.join(srcDir, "Application", "index.jsx")
     ],
     output: {
         path: path.join(srcDir, "build"),
         publicPath: "/",
         filename: "bundle.js"
     },
+    resolve: {
+        extensions: [".js", ".jsx", ".json"]
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
+                loader: 'eslint-loader',
+                include: srcDir,
+                enforce: 'pre',
+                options: {
+                    fix: true,
+                }
+            },
+            {
+                test: /\.jsx?$/,
                 include: srcDir,
                 loader: 'babel-loader',
                 query: {
@@ -43,5 +55,5 @@ module.exports = {
     ],
     performance: {
         hints: false
-    }
+    },
 };

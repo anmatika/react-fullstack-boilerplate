@@ -47,16 +47,19 @@ const uglifyJsPluginConfig = {
 module.exports = {
     devtool: false,
     bail: true,
-    entry: path.join(srcDir, 'Application', 'index.js'),
+    entry: path.join(srcDir, 'Application', 'index.jsx'),
     output: {
         path: path.join(srcDir, 'build'),
         publicPath: '/',
         filename: 'bundle.js',
     },
+    resolve: {
+        extensions: [".js", ".jsx", ".json"]
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 include: srcDir,
                 loader: 'babel-loader',
             },
