@@ -4,14 +4,14 @@ import {requestResponseFromAPI, changeInputValue} from "../../actions";
 import CustomButton from "../../components/input/CustomButton";
 import CustomInput from "../../components/input/CustomInput";
 
-const MainView = ({isLoading, error, foo, loadFoo, callApiThroughRedux, onInputChange, inputValue}) =>
+const MainView = ({isLoading, error, response, callApiThroughRedux, onInputChange, inputValue}) =>
     <div>
-        {foo}
+        {response}
         <br/>
         <CustomButton
             text={isLoading ? "Loading .." : "Submit value to API"}
             onClick={() => callApiThroughRedux(inputValue)}
-            disabled={isLoading}/>
+            disabled={isLoading || !inputValue}/>
 
         <CustomInput
             type="number"

@@ -6,6 +6,6 @@ router.get('/', (req, res) =>
 
 const searchParam = 'search';
 router.get('/:' + searchParam, (req, res) =>
-    setTimeout(() => res.json("Parameter value: " + req.params[searchParam]), 2000));
+    setTimeout(() => res.json("Delayed response with received value: " + req.params[searchParam] + "ms"), req.params[searchParam]));
 
 module.exports = router;
