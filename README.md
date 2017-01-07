@@ -10,6 +10,7 @@ NodeJS development using React & friends on the client-side.
 *  Redux with thunk, redux-pack and DevTools chrome plugin integration
 *  React Hot Loader 3
 *  webpack 2 with preconfigured dev environment
+*  eslint with a11y support for code linting and automatic formatting
 *  Sass stylesheets
 *  Scalable folder structure
 *  .. more to come
@@ -21,7 +22,7 @@ NodeJS development using React & friends on the client-side.
 ### A note about components
 The components in the ```/components``` folder should be structured as such:
 *  one folder per component
-*  one main entry file per component, named index.js
+*  one main entry file per component, named index.jsx
 *  the main entry file has one default export, being the component
 *  a stylesheet named style.css containing all style rules for the component
 *  if the component is a container component: 
@@ -56,8 +57,8 @@ about your bundle's contents.
 *  favicon (through html webpack plugin)
 *  tests backend
 *  graphQL?
-*  eslint
-*  a11y
+*  ~~eslint~~
+*  ~~a11y~~
 *  autoprefixer
 *  integration with GitLab and GitHub CI?
 *  shallow rendering tests frontend..?

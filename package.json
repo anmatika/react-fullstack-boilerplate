@@ -1,6 +1,6 @@
 {
   "name": "fullstack-react-boilerplate",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Full-stack Node.js/React boilerplate with various utilities preconfigured",
   "main": "index.js",
   "dependencies": {
