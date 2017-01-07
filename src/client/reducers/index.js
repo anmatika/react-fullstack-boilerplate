@@ -1,5 +1,5 @@
 import {handle} from "redux-pack";
-import {LOAD_FOO} from "../types";
+import {REQUEST_RESPONSE_FROM_API} from "../types";
 
 const initialState = {
     isLoading: false,
@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
     const {type, payload} = action;
 
     switch (type) {
-        case LOAD_FOO:
+        case REQUEST_RESPONSE_FROM_API:
             return handle(state, action, {
                 start: s => ({...s, isLoading: true, error: null, foo: null}),
                 finish: s => ({...s, isLoading: false}),
