@@ -53,6 +53,9 @@ module.exports = {
         publicPath: '/',
         filename: 'bundle.js',
     },
+    resolve: {
+        extensions: [".js", ".jsx", ".json"]
+    },
     module: {
         rules: [
             {
