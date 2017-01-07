@@ -10,7 +10,6 @@ module.exports = {
     entry: [
         'webpack-hot-middleware/client',
         'react-hot-loader/patch',
-        "webpack/hot/only-dev-server",
         path.join(srcDir, "Application", "index.jsx")
     ],
     output: {

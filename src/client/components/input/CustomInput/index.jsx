@@ -13,7 +13,7 @@ CustomInput.propTypes = {
   type: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   onChange: React.PropTypes.func,
-  value: React.PropTypes.string.isRequired,
+  value: React.PropTypes.node.isRequired,
 };
 
 export default CustomInput;

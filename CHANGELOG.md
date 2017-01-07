@@ -1,3 +1,7 @@
+## 0.6.1 (07.01.17)
+*  Remove deprecated hot reloading entry from webpack dev config
+*  Fix proptype validation error for CustomInput
+
 ## 0.6.0 (07.01.17)
 *  Add eslint using airbnb's config and integrate it with dev environment
 Update codebase to comply with code style requirements
