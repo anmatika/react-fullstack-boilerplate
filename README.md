@@ -44,6 +44,7 @@ Upload it to a tool like [webpack analyse][1] or [webpack visualizer][2] to get 
 about your bundle's contents.
 
 ## To-do:
+*  *"Getting started"* section
 *  Demonstrate basic client/server interaction
 *  ~~Sass support~~
 *  react-router

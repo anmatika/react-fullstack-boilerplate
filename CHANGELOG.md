@@ -1,3 +1,8 @@
+## 0.5.1 (07.01.17)
+*  Fix redux example by completing partial action type renaming
+*  Update example application to better demonstrate client and server interaction through redux
+*  Bump dependency versions
+
 ## 0.5.0 (07.01.17)
 *  Add production build support
 *  Add build and stats script for webpack to generate stats.json 
