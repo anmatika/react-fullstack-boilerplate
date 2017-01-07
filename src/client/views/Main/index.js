@@ -1,21 +1,29 @@
 import React from "react";
 import {connect} from "react-redux";
+import {requestResponseFromAPI, changeInputValue} from "../../actions";
 import CustomButton from "../../components/input/CustomButton";
-import {requestResponseFromAPI} from "../../actions";
+import CustomInput from "../../components/input/CustomInput";
 
-const MainView = ({isLoading, error, foo, loadFoo, callApiThroughRedux}) =>
+const MainView = ({isLoading, error, foo, loadFoo, callApiThroughRedux, onInputChange, inputValue}) =>
     <div>
         {foo}
         <br/>
         <CustomButton
-            text={isLoading ? "Loading .." : "Fetch from API"}
-            onClick={() => callApiThroughRedux(1000)}
+            text={isLoading ? "Loading .." : "Submit value to API"}
+            onClick={() => callApiThroughRedux(inputValue)}
             disabled={isLoading}/>
+
+        <CustomInput
+            type="number"
+            disabled={isLoading}
+            onChange={onInputChange}
+            value={inputValue}/>
     </div>;
 
 export default connect(
     state => ({...state}),
     dispatch => ({
-        callApiThroughRedux: timeout => dispatch(requestResponseFromAPI(timeout))
+        onInputChange: event => dispatch(changeInputValue(event.target.value)),
+        callApiThroughRedux: timeout => dispatch(requestResponseFromAPI(timeout)),
     }),
 )(MainView);

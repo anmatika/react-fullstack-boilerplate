@@ -1,5 +1,5 @@
 import {handle} from "redux-pack";
-import {REQUEST_RESPONSE_FROM_API} from "../types";
+import {REQUEST_RESPONSE_FROM_API, CHANGE_INPUT_VALUE} from "../types";
 
 const initialState = {
     isLoading: false,
@@ -18,6 +18,9 @@ export default (state = initialState, action) => {
                 failure: s => ({...s, error: payload}),
                 success: s => ({...s, foo: payload})
             });
+
+        case CHANGE_INPUT_VALUE:
+            return Object.assign({}, state, {inputValue: action.inputValue});
 
         default:
             return state;

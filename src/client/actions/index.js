@@ -1,4 +1,4 @@
-import {REQUEST_RESPONSE_FROM_API} from "../types";
+import {REQUEST_RESPONSE_FROM_API, CHANGE_INPUT_VALUE} from "../types";
 
 export const requestResponseFromAPI = id =>
     ({
@@ -6,3 +6,6 @@ export const requestResponseFromAPI = id =>
         promise: fetch('/api/HELLO_WORLD_' + id)
             .then(res => res.json())
     });
+
+export const changeInputValue = inputValue =>
+    ({type: CHANGE_INPUT_VALUE, inputValue});
