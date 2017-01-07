@@ -6,6 +6,7 @@ NodeJS development using React & friends on the client-side.
 ## Features
 *  Complete skeleton for full-stack application development 
 *  Both API and bundle served from same port
+*  Builds production-ready static assets in one command
 *  Redux with thunk, redux-pack and DevTools chrome plugin integration
 *  React Hot Loader 3
 *  webpack 2 with preconfigured dev environment
@@ -37,13 +38,17 @@ A container component should only be concerned with acquiring and passing data
 to the view component, whose concern regards rendering the received data -- these concerns should
 rarely be covered by the same component.
 
+### Analysing the webpack bundle
+Running ```npm run buildstats``` will generate a *stats.json* file in the project's root directory.
+Upload it to a tool like [webpack analyse][1] or [webpack visualizer][2] to get detailed information 
+about your bundle's contents.
 
 ## To-do:
 *  Demonstrate basic client/server interaction
 *  ~~Sass support~~
 *  react-router
 *  ~~Use same port for client/server?~~
-*  Production build
+*  ~~Production build~~
 *  DB integration?
 *  ~~Redux~~
 *  favicon (through html webpack plugin)
@@ -57,3 +62,7 @@ rarely be covered by the same component.
 *  cool utils like react-storybook, react-fix-it, webpack-bundle-analyzer, redux-bug-reporter..
 *  PWA integration 
 *  grid system that isn't bootstrap
+
+
+[1]: https://webpack.github.io/analyse/
+[2]: https://chrisbateman.github.io/webpack-visualizer/
