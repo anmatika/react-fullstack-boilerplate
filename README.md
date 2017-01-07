@@ -45,7 +45,8 @@ about your bundle's contents.
 
 ## To-do:
 *  *"Getting started"* section
-*  Demonstrate basic client/server interaction
+*  Demonstrate sharing sass styling between components
+*  ~~Demonstrate basic client/server interaction~~
 *  ~~Sass support~~
 *  react-router
 *  ~~Use same port for client/server?~~
