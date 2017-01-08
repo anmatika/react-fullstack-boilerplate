@@ -48,6 +48,7 @@ Upload it to a tool like [webpack analyse][1] or [webpack visualizer][2] to get 
 about your bundle's contents.
 
 ## To-do:
+*  Complete compliance with Lighthouse
 *  *"Getting started"* section
 *  Section explaining the motivation behind creating this boilerplate
 *  FAQ section
