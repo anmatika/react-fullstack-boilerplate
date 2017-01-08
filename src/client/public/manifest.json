@@ -1,5 +1,5 @@
 {
-  "short_name": "react-fullstack-boilerplate",
+  "short_name": "Boilerplate",
   "name": "React Fullstack Boilerplate",
   "icons": [
     {
@@ -10,5 +10,6 @@
   ],
   "start_url": "./",
   "display": "standalone",
+  "background_color": "#FFFFFF",
   "theme_color": "#CCCCCC"
 }
