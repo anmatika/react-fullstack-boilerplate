@@ -5,6 +5,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { middleware as reduxPackMiddleware } from 'redux-pack';
+import { install as installServiceWorker } from 'offline-plugin/runtime';
 import rootReducer from '../reducers';
 import Main from '../views/Main';
 
@@ -27,6 +28,10 @@ const reactRoot = (
 );
 
 render(reactRoot, rootElement);
+
+if (process.env.NODE_ENV === 'production') {
+  installServiceWorker();
+}
 
 if (module.hot) {
   module.hot.accept('../views/Main', () =>
