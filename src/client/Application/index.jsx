@@ -28,10 +28,7 @@ const reactRoot = (
 );
 
 render(reactRoot, rootElement);
-
-if (process.env.NODE_ENV === 'production') {
-  installServiceWorker();
-}
+installServiceWorker();
 
 if (module.hot) {
   module.hot.accept('../views/Main', () =>
