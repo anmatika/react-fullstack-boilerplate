@@ -1,13 +1,15 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const srcDir = __dirname;
+const buildPath = path.join(srcDir, 'build');
 
 const htmlPluginConfig = {
     inject: true,
-    template: path.resolve(srcDir, "Application", 'index.html'),
-    favicon: path.resolve(srcDir, "Application", "favicon.ico"),
+    template: path.resolve(srcDir, 'Application', 'index.html'),
+    favicon: path.resolve(srcDir, 'Application', "favicon.ico"),
     minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -50,12 +52,12 @@ module.exports = {
     bail: true,
     entry: path.join(srcDir, 'Application', 'index.jsx'),
     output: {
-        path: path.join(srcDir, 'build'),
+        path: buildPath,
         publicPath: '/',
         filename: 'bundle.js',
     },
     resolve: {
-        extensions: [".js", ".jsx", ".json"]
+        extensions: ['.js', '.jsx', '.json'],
     },
     module: {
         rules: [
@@ -67,19 +69,20 @@ module.exports = {
             {
                 test: /\.scss$/,
                 include: srcDir,
-                loaders: ["style-loader", "css-loader", "sass-loader"]
-            }
-        ]
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
+            },
+        ],
     },
     plugins: [
+        new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
         new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
         new webpack.optimize.UglifyJsPlugin(uglifyJsPluginConfig),
     ],
     node: {
-        fs: "empty",
-        net: "empty",
-        tls: "empty",
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
     },
 };
