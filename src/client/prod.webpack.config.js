@@ -4,9 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const srcDir = __dirname;
 
-const htmlWebpackConfig = {
+const htmlPluginConfig = {
     inject: true,
     template: path.resolve(srcDir, "Application", 'index.html'),
+    favicon: path.resolve(srcDir, "Application", "favicon.ico"),
     minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -71,7 +72,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin(htmlWebpackConfig),
+        new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
         new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
         new webpack.optimize.UglifyJsPlugin(uglifyJsPluginConfig),

@@ -5,6 +5,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const srcDir = __dirname;
 const templateHtmlPath = path.resolve(srcDir, "Application", 'index.html');
 
+const htmlPluginConfig = {
+    inject: true,
+    template: templateHtmlPath,
+    favicon: path.resolve(srcDir, "Application", "favicon.ico"),
+};
+
 module.exports = {
     devtool: 'eval-cheap-module-source-map',
     entry: [
@@ -47,7 +53,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({inject: true, template: templateHtmlPath}),
+        new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"development"'}),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
