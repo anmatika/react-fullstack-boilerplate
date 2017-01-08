@@ -1,3 +1,8 @@
+## 0.7.0 (08.01.17)
+*  Converter application into a Progressive Web Application
+*  Add support for service worker, manifest.json, use offline-plugin for webpack
+*  create /public folder which gets bundled with build
+
 ## 0.6.1 (07.01.17)
 *  Remove deprecated hot reloading entry from webpack dev config
 *  Fix proptype validation error for CustomInput

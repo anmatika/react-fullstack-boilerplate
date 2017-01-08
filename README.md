@@ -1,10 +1,12 @@
 # Yet Another React boilerplate
 
 This project is intended as a lightweight boilerplate for getting started with full-stack 
-NodeJS development using React & friends on the client-side.
+development using Node.js server-side and creating a progressive web app using 
+React & Redux on the client-side.
 
 ## Features
-*  Complete skeleton for full-stack application development 
+*  Complete skeleton for full-stack progressive web application development
+*  Preconfigured to support PWA features
 *  Both API and bundle served from same port
 *  Builds production-ready static assets in one command
 *  Redux with thunk, redux-pack and DevTools chrome plugin integration
@@ -63,7 +65,7 @@ about your bundle's contents.
 *  integration with GitLab and GitHub CI?
 *  shallow rendering tests frontend..?
 *  cool utils like react-storybook, react-fix-it, webpack-bundle-analyzer, redux-bug-reporter..
-*  PWA integration 
+*  ~~PWA integration~~ 
 *  grid system that isn't bootstrap
 
 
