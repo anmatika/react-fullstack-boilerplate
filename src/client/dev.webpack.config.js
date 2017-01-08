@@ -1,9 +1,17 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 const srcDir = __dirname;
-const templateHtmlPath = path.resolve(srcDir, "Application", 'index.html');
+const buildPath = path.join(srcDir, 'build');
+
+const htmlPluginConfig = {
+    inject: true,
+    template: path.resolve(srcDir, 'Application', 'index.html'),
+    favicon: path.resolve(srcDir, 'Application', 'favicon.ico'),
+};
 
 module.exports = {
     devtool: 'eval-cheap-module-source-map',
@@ -13,12 +21,12 @@ module.exports = {
         path.join(srcDir, "Application", "index.jsx")
     ],
     output: {
-        path: path.join(srcDir, "build"),
-        publicPath: "/",
-        filename: "bundle.js"
+        path: buildPath,
+        publicPath: '/',
+        filename: 'bundle.js'
     },
     resolve: {
-        extensions: [".js", ".jsx", ".json"]
+        extensions: ['.js', '.jsx', '.json'],
     },
     module: {
         rules: [
@@ -42,15 +50,17 @@ module.exports = {
             {
                 test: /\.scss$/,
                 include: srcDir,
-                loaders: ["style-loader", "css-loader?sourceMap", "sass-loader?sourceMap"]
-            }
-        ]
+                loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+            },
+        ],
     },
     plugins: [
-        new HtmlWebpackPlugin({inject: true, template: templateHtmlPath}),
+        new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
+        new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"development"'}),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new OfflinePlugin(),
     ],
     performance: {
         hints: false

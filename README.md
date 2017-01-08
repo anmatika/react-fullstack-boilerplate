@@ -1,10 +1,12 @@
 # Yet Another React boilerplate
 
 This project is intended as a lightweight boilerplate for getting started with full-stack 
-NodeJS development using React & friends on the client-side.
+development using Node.js server-side and creating a progressive web app using 
+React & Redux on the client-side.
 
 ## Features
-*  Complete skeleton for full-stack application development 
+*  Complete skeleton for full-stack progressive web application development
+*  Preconfigured to support PWA features
 *  Both API and bundle served from same port
 *  Builds production-ready static assets in one command
 *  Redux with thunk, redux-pack and DevTools chrome plugin integration
@@ -17,7 +19,8 @@ NodeJS development using React & friends on the client-side.
 
 ## Folder structure
 ```/components``` Folder containing reusable components  
-```/views``` Complete page views composed from reusable ```/components```
+```/views``` Complete page views composed from reusable ```/components```  
+```/public``` Content in this folder will be copied to the resulting build folder, and can be included in ```index.html```
 
 ### A note about components
 The components in the ```/components``` folder should be structured as such:
@@ -45,26 +48,39 @@ Upload it to a tool like [webpack analyse][1] or [webpack visualizer][2] to get 
 about your bundle's contents.
 
 ## To-do:
+*  Complete compliance with Lighthouse
 *  *"Getting started"* section
+*  Section explaining the motivation behind creating this boilerplate
+*  FAQ section
+*  Commands/scripts explanation section
+*  npm scripts for building only statics and hosting with server in production mode
+*  Service layer with host config to decouple frontend from backend 
+(to allow building only the frontend and using the static files with a different backend)
+*  Support hosting production build with server
+*  Chunk hashing
+*  add fetch and other required polyfills
+*  test in different browsers (IE, Safari)
 *  Demonstrate sharing sass styling between components
-*  ~~Demonstrate basic client/server interaction~~
-*  ~~Sass support~~
-*  react-router
-*  ~~Use same port for client/server?~~
-*  ~~Production build~~
+*  react-router (with module/code splitting)
 *  DB integration?
-*  ~~Redux~~
-*  favicon (through html webpack plugin)
 *  tests backend
 *  graphQL?
-*  ~~eslint~~
-*  ~~a11y~~
 *  autoprefixer
 *  integration with GitLab and GitHub CI?
-*  shallow rendering tests frontend..?
 *  cool utils like react-storybook, react-fix-it, webpack-bundle-analyzer, redux-bug-reporter..
-*  PWA integration 
-*  grid system that isn't bootstrap
+*  grid system
+
+
+## Done
+*  ~~Demonstrate basic client/server interaction~~
+*  ~~Sass support~~
+*  ~~PWA integration~~ 
+*  ~~eslint~~
+*  ~~a11y~~
+*  ~~Use same port for client/server?~~
+*  ~~Production build~~
+*  ~~Redux~~
+*  ~~favicon (through html webpack plugin)~~
 
 
 [1]: https://webpack.github.io/analyse/
