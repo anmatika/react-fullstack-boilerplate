@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -9,9 +10,7 @@ const api = require('./api');
 const webpackConfig = require('../client/dev.webpack.config.js');
 const buildPath = path.resolve(__dirname, "..", "client", "build");
 const generatedIndexHtmlPath = path.resolve(buildPath, 'index.html');
-
-const compiler = webpack(webpackConfig);
-const devMiddleware = webpackDevMiddleware(compiler, {
+const devMiddlewareConfig = {
     stats: {
         colors: true,
         children: false,
@@ -21,11 +20,15 @@ const devMiddleware = webpackDevMiddleware(compiler, {
         chunks: false,
         chunkModules: false
     }
-});
+};
+
+const compiler = webpack(webpackConfig);
+const devMiddleware = webpackDevMiddleware(compiler, devMiddlewareConfig);
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('dev'));
 app.use('/api', api);
 app.use(devMiddleware);
 app.use(webpackHotMiddleware(compiler));
