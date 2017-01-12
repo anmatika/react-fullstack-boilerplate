@@ -1,3 +1,8 @@
+## 0.8.0 (12.01.17)
+*  Integrate autoprefixer in webpack dev and prod environments
+*  Remove NoErrorsPlugin() from webpack dev configuration
+*  Add new 'hostbuild' npm script
+
 ## 0.7.0 (08.01.17)
 *  Convert application into a Progressive Web Application
 *  Add support for service worker, manifest, use offline-plugin for webpack

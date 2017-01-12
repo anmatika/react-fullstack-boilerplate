@@ -50,7 +50,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 include: srcDir,
-                loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+                loaders: [
+                    'style-loader',
+                    'css-loader?sourceMap',
+                    'sass-loader?sourceMap',
+                    'postcss-loader',
+                ]
             },
         ],
     },
@@ -59,7 +64,6 @@ module.exports = {
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"development"'}),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
         new OfflinePlugin(),
     ],
     performance: {

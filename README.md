@@ -1,4 +1,4 @@
-# Yet Another React boilerplate
+# Full-stack React/Redux boilerplate
 
 This project is intended as a lightweight boilerplate for getting started with full-stack 
 development using Node.js server-side and creating a progressive web app using 
@@ -11,11 +11,11 @@ React & Redux on the client-side.
 *  Builds production-ready static assets in one command
 *  Redux with thunk, redux-pack and DevTools chrome plugin integration
 *  React Hot Loader 3
-*  webpack 2 with preconfigured dev environment
+*  webpack 2 with preconfigured development and production environments
 *  eslint with a11y support for code linting and automatic formatting
-*  Sass stylesheets
+*  Sass stylesheets support with automatic vendor prefixing where necessary
 *  Scalable folder structure
-*  .. more to come
+*  More to come, suggestions gladly welcome!
 
 ## Folder structure
 ```/components``` Folder containing reusable components  
@@ -57,7 +57,6 @@ about your bundle's contents.
 *  Service layer with host config to decouple frontend from backend 
 (to allow building only the frontend and using the static files with a different backend)
 *  Support hosting production build with server
-*  Chunk hashing
 *  add fetch and other required polyfills
 *  test in different browsers (IE, Safari)
 *  Demonstrate sharing sass styling between components
@@ -65,13 +64,14 @@ about your bundle's contents.
 *  DB integration?
 *  tests backend
 *  graphQL?
-*  autoprefixer
 *  integration with GitLab and GitHub CI?
 *  cool utils like react-storybook, react-fix-it, webpack-bundle-analyzer, redux-bug-reporter..
 *  grid system
+*  server rendering
 
 
 ## Done
+*  ~~autoprefixer~~
 *  ~~Demonstrate basic client/server interaction~~
 *  ~~Sass support~~
 *  ~~PWA integration~~ 
