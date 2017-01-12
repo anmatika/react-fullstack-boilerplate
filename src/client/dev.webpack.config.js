@@ -64,7 +64,6 @@ module.exports = {
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"development"'}),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
         new OfflinePlugin(),
     ],
     performance: {
