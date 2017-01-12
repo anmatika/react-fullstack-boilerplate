@@ -3,6 +3,23 @@
   "version": "0.7.0",
   "description": "Full-stack Node.js/React boilerplate with various utilities preconfigured",
   "main": "index.js",
+  "scripts": {
+    "start": "node src/server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config src/client/prod.webpack.config.js",
+    "buildstats": "webpack --profile --config src/client/prod.webpack.config.js --json > stats.json",
+    "hostbuild": "rm -rf src/client/build && npm run build && pushstate-server src/client/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j0nas/track-repo-updates.git"
+  },
+  "author": "Jonas Jensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j0nas/track-repo-updates/issues"
+  },
+  "homepage": "https://github.com/j0nas/track-repo-updates#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
@@ -16,6 +33,7 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
@@ -33,26 +51,17 @@
     "html-webpack-plugin": "^2.26.0",
     "morgan": "^1.7.0",
     "node-sass": "^4.1.1",
+    "pushstate-server": "^2.1.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0-rc.2",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"
   },
-  "scripts": {
-    "start": "node src/server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config src/client/prod.webpack.config.js",
-    "buildstats": "webpack --profile --config src/client/prod.webpack.config.js --json > stats.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/j0nas/track-repo-updates.git"
-  },
-  "author": "Jonas Jensen",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/j0nas/track-repo-updates/issues"
-  },
-  "homepage": "https://github.com/j0nas/track-repo-updates#readme"
+  "browserslist": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not ie < 9"
+  ]
 }
