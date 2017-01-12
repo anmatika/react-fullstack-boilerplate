@@ -50,7 +50,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 include: srcDir,
-                loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+                loaders: [
+                    'style-loader',
+                    'css-loader?sourceMap',
+                    'sass-loader?sourceMap',
+                    'postcss-loader',
+                ]
             },
         ],
     },
