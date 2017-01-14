@@ -5,14 +5,14 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { middleware as reduxPackMiddleware } from 'redux-pack';
-import { install as installServiceWorker } from 'offline-plugin/runtime';
 import rootReducer from '../reducers';
 import Main from '../views/Main';
 
 const reduxMiddleware = applyMiddleware(thunk, reduxPackMiddleware);
 
+const isDevelopmentEnvironment = process.env.NODE_ENV === 'development';
 const enhancer =
-    process.env.NODE_ENV === 'development' ?
+    isDevelopmentEnvironment ?
         compose(reduxMiddleware, ...(window.devToolsExtension ? [window.devToolsExtension()] : [])) :
         reduxMiddleware;
 
@@ -28,7 +28,10 @@ const reactRoot = (
 );
 
 render(reactRoot, rootElement);
-installServiceWorker();
+
+if (!isDevelopmentEnvironment) {
+    require('offline-plugin/runtime').install(); // eslint-disable-line global-require
+}
 
 if (module.hot) {
   module.hot.accept('../views/Main', () =>
