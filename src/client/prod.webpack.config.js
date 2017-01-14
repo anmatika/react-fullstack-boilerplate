@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const srcDir = __dirname;
 const buildPath = path.join(srcDir, 'build');
@@ -68,19 +69,18 @@ module.exports = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.scss$/,
+                test: /\.?scss$/,
                 include: srcDir,
-                loaders: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                    'postcss-loader',
-                ],
+                loader: ExtractTextPlugin.extract({
+                    loader: ['css-loader', 'sass-loader', 'postcss-loader'],
+                    fallbackLoader: 'style-loader',
+                })
             },
         ],
     },
     plugins: [
         new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
+        new ExtractTextPlugin({filename: 'bundle.css', allChunks: true}),
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
         new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
