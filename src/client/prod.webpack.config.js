@@ -80,6 +80,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new webpack.NoEmitOnErrorsPlugin(),
         new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
         new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
         new HtmlWebpackPlugin(htmlPluginConfig),
@@ -92,5 +93,8 @@ module.exports = {
         fs: 'empty',
         net: 'empty',
         tls: 'empty',
+    },
+    performance: {
+        hints: false
     },
 };
