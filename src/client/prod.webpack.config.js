@@ -56,7 +56,8 @@ module.exports = {
     output: {
         path: buildPath,
         publicPath: '/',
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash:8].js',
+        chunkFilename: '[name].[chunkhash:8].chunk.js',
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
@@ -80,7 +81,7 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
-        new ExtractTextPlugin({filename: 'bundle.css', allChunks: true}),
+        new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
         new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
