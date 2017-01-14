@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
 
 const srcDir = __dirname;
 const buildPath = path.join(srcDir, 'build');
@@ -64,9 +63,5 @@ module.exports = {
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"development"'}),
         new webpack.HotModuleReplacementPlugin(),
-        new OfflinePlugin(),
     ],
-    performance: {
-        hints: false
-    },
 };

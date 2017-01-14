@@ -8,7 +8,7 @@ React & Redux on the client-side.
 *  Complete skeleton for full-stack progressive web application development
 *  Preconfigured to support PWA features
 *  Both API and bundle served from same port
-*  Builds production-ready static assets in one command
+*  Builds (and optionally hosts) production-ready static assets in one command
 *  Redux with thunk, redux-pack and DevTools chrome plugin integration
 *  React Hot Loader 3
 *  webpack 2 with preconfigured development and production environments
@@ -48,6 +48,9 @@ Upload it to a tool like [webpack analyse][1] or [webpack visualizer][2] to get 
 about your bundle's contents.
 
 ## To-do:
+*  CSS modules ([full][4], [babel plugin][5])
+*  add fetch and other required polyfills [only for browsers that need it][3]
+*  Consider switching React with Preact in production
 *  Complete compliance with Lighthouse
 *  *"Getting started"* section
 *  Section explaining the motivation behind creating this boilerplate
@@ -57,7 +60,6 @@ about your bundle's contents.
 *  Service layer with host config to decouple frontend from backend 
 (to allow building only the frontend and using the static files with a different backend)
 *  Support hosting production build with server
-*  add fetch and other required polyfills
 *  test in different browsers (IE, Safari)
 *  Demonstrate sharing sass styling between components
 *  react-router (with module/code splitting)
@@ -68,7 +70,6 @@ about your bundle's contents.
 *  cool utils like react-storybook, react-fix-it, webpack-bundle-analyzer, redux-bug-reporter..
 *  grid system
 *  server rendering
-
 
 ## Done
 *  ~~autoprefixer~~
@@ -85,3 +86,6 @@ about your bundle's contents.
 
 [1]: https://webpack.github.io/analyse/
 [2]: https://chrisbateman.github.io/webpack-visualizer/
+[3]: https://gist.github.com/davidgilbertson/6a66e05d6f193281a4c6b54d19acf3fd
+[4]: http://github.com/gajus/react-css-modules
+[5]: http://github.com/gajus/babel-plugin-react-css-modules

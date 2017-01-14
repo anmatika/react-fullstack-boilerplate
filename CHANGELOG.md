@@ -1,3 +1,9 @@
+## 0.9.0 (14.01.17)
+*  Use extract-text-webpack-plugin to extract all css to separate CSS bundle
+*  Add hashes to generated bundle filenames in prod
+*  Disable service worker in dev environment, remove from dev config
+*  Upgrade to webpack 2.2.0-rc.4
+
 ## 0.8.0 (12.01.17)
 *  Integrate autoprefixer in webpack dev and prod environments
 *  Remove NoErrorsPlugin() from webpack dev configuration

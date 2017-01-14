@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const srcDir = __dirname;
 const buildPath = path.join(srcDir, 'build');
@@ -55,7 +56,8 @@ module.exports = {
     output: {
         path: buildPath,
         publicPath: '/',
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash:8].js',
+        chunkFilename: '[name].[chunkhash:8].chunk.js',
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
@@ -68,19 +70,19 @@ module.exports = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.scss$/,
+                test: /\.?scss$/,
                 include: srcDir,
-                loaders: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                    'postcss-loader',
-                ],
+                loader: ExtractTextPlugin.extract({
+                    loader: ['css-loader', 'sass-loader', 'postcss-loader'],
+                    fallbackLoader: 'style-loader',
+                })
             },
         ],
     },
     plugins: [
+        new webpack.NoEmitOnErrorsPlugin(),
         new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
+        new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
         new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
@@ -91,5 +93,8 @@ module.exports = {
         fs: 'empty',
         net: 'empty',
         tls: 'empty',
+    },
+    performance: {
+        hints: false
     },
 };
