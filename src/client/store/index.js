@@ -4,14 +4,10 @@ import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 
 const reduxMiddleware = applyMiddleware(thunk, reduxPackMiddleware);
-
-const isDevelopmentEnvironment = process.env.NODE_ENV === 'development';
-
 const enhancer =
-  isDevelopmentEnvironment ?
-    compose(reduxMiddleware, ...(window.devToolsExtension ? [window.devToolsExtension()] : [])) :
-    reduxMiddleware;
+  process.env.NODE_ENV === 'development' ?
+    compose(reduxMiddleware, ...(window.devToolsExtension ?
+      [window.devToolsExtension()] : [])) :
+      reduxMiddleware;
 
-const store = createStore(rootReducer, enhancer);
-
-export default store;
+export default createStore(rootReducer, enhancer);
