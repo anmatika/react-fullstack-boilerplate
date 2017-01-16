@@ -10,7 +10,9 @@ const reactDOMserver = require('react-dom/server');
 const redux = require('redux');
 const reactRedux = require('react-redux');
 const reactHotLoader = require('react-hot-loader');
-const store = require('../client/store');
+const React = require('react');
+const reduxStore = require('../client/store');
+const Main = require('../client/views/Main');
 
 const renderToString = reactDOMserver.renderToString;
 const createStore = redux.createStore;
@@ -41,13 +43,14 @@ const app = express();
 const handleRender = () => {
   const isDevelopmentEnvironment = process.env.NODE_ENV === 'development';
 
-  // return renderToString(
-  //   <Provider store={store}>
-  //     <AppContainer>
-  //       <Main />
-  //     </AppContainer>
-  //   </Provider>
-  // );
+  const Provider = React.createFactory(reactRedux.Provider);
+
+  return renderToString(Provider({store: reduxStore}, Main));
+    //<Provider store={store}>
+    //   <AppContainer>
+    //     <Main />
+    //   </AppContainer>
+    // </Provider>
 };
 /*
 const html = `
