@@ -1,5 +1,5 @@
-import { handle } from 'redux-pack';
-import { REQUEST_RESPONSE_FROM_API, CHANGE_INPUT_VALUE } from '../types';
+const reduxPack = require('redux-pack');
+const types = require('../types');
 
 const initialState = {
   inputValue: 0,
@@ -8,19 +8,19 @@ const initialState = {
   response: null,
 };
 
-export default (state = initialState, action) => {
+module.exports = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case REQUEST_RESPONSE_FROM_API:
-      return handle(state, action, {
-        start: s => ({ ...s, isLoading: true, error: null, response: null }),
-        finish: s => ({ ...s, isLoading: false }),
-        failure: s => ({ ...s, error: payload }),
-        success: s => ({ ...s, response: payload }),
+    case types.REQUEST_RESPONSE_FROM_API:
+      return reduxPack.handle(state, action, {
+        start: s => Object.assign({}, s, { isLoading: true, error: null, response: null }),
+        finish: s => Object.assign({}, s, { isLoading: false }),
+        failure: s => Object.assign({}, s, { error: payload }),
+        success: s => Object.assign({}, s, { response: payload }),
       });
 
-    case CHANGE_INPUT_VALUE:
+    case types.CHANGE_INPUT_VALUE:
       return Object.assign({}, state, { inputValue: action.inputValue });
 
     default:

@@ -1,13 +1,12 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { middleware as reduxPackMiddleware } from 'redux-pack';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
+const redux = require('redux');
+const reduxPack = require('redux-pack');
+const thunk = require('redux-thunk');
+const rootReducer = require('../reducers');
 
-const reduxMiddleware = applyMiddleware(thunk, reduxPackMiddleware);
+const reduxMiddleware = redux.applyMiddleware(thunk.default, reduxPack.middleware);
 const enhancer =
   process.env.NODE_ENV === 'development' ?
-    compose(reduxMiddleware, ...(window.devToolsExtension ?
-      [window.devToolsExtension()] : [])) :
-      reduxMiddleware;
+    redux.compose(reduxMiddleware, ...(window.devToolsExtension ? [window.devToolsExtension()] : [])) :
+    reduxMiddleware;
 
-export default createStore(rootReducer, enhancer);
+module.exports = redux.createStore(rootReducer, enhancer);

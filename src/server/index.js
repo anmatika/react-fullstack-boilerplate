@@ -10,6 +10,7 @@ const reactDOMserver = require('react-dom/server');
 const redux = require('redux');
 const reactRedux = require('react-redux');
 const reactHotLoader = require('react-hot-loader');
+const store = require('../client/store');
 
 const renderToString = reactDOMserver.renderToString;
 const createStore = redux.createStore;
