@@ -30,7 +30,7 @@ const reactRoot = (
 render(reactRoot, rootElement);
 
 if (!isDevelopmentEnvironment) {
-    require('offline-plugin/runtime').install(); // eslint-disable-line global-require
+  require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }
 
 if (module.hot) {

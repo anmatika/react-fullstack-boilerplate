@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const paths = require('./config/paths');
+const paths = require('./paths');
 
 const htmlPluginConfig = {
     inject: true,

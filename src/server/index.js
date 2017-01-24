@@ -7,7 +7,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const api = require('./api');
-const webpackConfig = require('../client/dev.webpack.config.js');
+const webpackConfig = require('../client/config/dev.webpack.config.js');
 const buildPath = path.resolve(__dirname, "..", "client", "build");
 const generatedIndexHtmlPath = path.resolve(buildPath, 'index.html');
 const devMiddlewareConfig = {
