@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config src/client/config/prod.webpack.config.js",
     "buildstats": "webpack --profile --config src/client/config/prod.webpack.config.js --json > stats.json",
-    "hostbuild": "rm -rf public && npm run build && pushstate-server public"
+    "hostbuild": "rm -rf public && npm run build && pushstate-server public",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -81,6 +82,19 @@
           "react-hot-loader/babel"
         ]
       }
+    }
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "max-len": [
+        1,
+        120
+      ]
     }
   }
 }
