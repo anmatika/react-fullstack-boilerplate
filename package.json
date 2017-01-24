@@ -59,5 +59,28 @@
     "webpack": "^2.2.0-rc.4",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "react"
+      ],
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "react-hot-loader/babel"
+        ]
+      }
+    }
   }
 }
