@@ -1,15 +1,12 @@
-const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
-const srcDir = __dirname;
-const buildPath = path.join(srcDir, 'build');
+const paths = require('./paths');
 
 const htmlPluginConfig = {
     inject: true,
-    template: path.resolve(srcDir, 'Application', 'index.html'),
-    favicon: path.resolve(srcDir, 'Application', 'favicon.ico'),
+    template: paths.htmlPluginTemplate,
+    favicon: paths.favIcon,
 };
 
 module.exports = {
@@ -17,10 +14,10 @@ module.exports = {
     entry: [
         'webpack-hot-middleware/client',
         'react-hot-loader/patch',
-        path.join(srcDir, "Application", "index.jsx")
+        paths.entry,
     ],
     output: {
-        path: buildPath,
+        path: paths.buildPath,
         publicPath: '/',
         filename: 'bundle.js'
     },
@@ -32,7 +29,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'eslint-loader',
-                include: srcDir,
+                include: paths.src,
                 enforce: 'pre',
                 options: {
                     fix: true,
@@ -40,7 +37,7 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                include: srcDir,
+                include: paths.src,
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true
@@ -48,7 +45,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                include: srcDir,
+                include: paths.src,
                 loaders: [
                     'style-loader',
                     'css-loader?sourceMap',
@@ -59,7 +56,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
+        new CopyWebpackPlugin([{from: paths.publicAssets, to: paths.buildPath}]),
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"development"'}),
         new webpack.HotModuleReplacementPlugin(),

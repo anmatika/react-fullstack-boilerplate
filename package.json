@@ -1,14 +1,15 @@
 {
   "name": "react-fullstack-boilerplate",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Full-stack Node.js/React boilerplate with various utilities preconfigured",
   "main": "index.js",
   "scripts": {
     "start": "node src/server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config src/client/prod.webpack.config.js",
-    "buildstats": "webpack --profile --config src/client/prod.webpack.config.js --json > stats.json",
-    "hostbuild": "rm -rf src/client/build && npm run build && pushstate-server src/client/build"
+    "build": "webpack --config src/client/config/prod.webpack.config.js",
+    "buildstats": "webpack --profile --config src/client/config/prod.webpack.config.js --json > stats.json",
+    "hostbuild": "rm -rf public && npm run build && pushstate-server public",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -59,5 +60,41 @@
     "webpack": "^2.2.0-rc.4",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "react"
+      ],
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "react-hot-loader/babel"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "max-len": [
+        1,
+        120
+      ]
+    }
   }
 }

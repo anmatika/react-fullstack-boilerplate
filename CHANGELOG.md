@@ -1,3 +1,7 @@
+## 0.9.1 (25.01.17)
+*  Extract paths in webpack config to separate file, share values between scripts
+*  Move all config files (sans postcss config) files to package.json or /config folder
+
 ## 0.9.0 (14.01.17)
 *  Use extract-text-webpack-plugin to extract all css to separate CSS bundle
 *  Add hashes to generated bundle filenames in prod
@@ -21,7 +25,7 @@
 
 ## 0.6.0 (07.01.17)
 *  Add eslint using airbnb's config and integrate it with dev environment
-Update codebase to comply with code style requirements
+*  Update codebase to comply with code style requirements
 *  Add support for .jsx file extension
 
 ## 0.5.1 (07.01.17)

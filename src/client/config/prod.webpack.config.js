@@ -1,17 +1,14 @@
-const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-const srcDir = __dirname;
-const buildPath = path.join(srcDir, 'build');
+const paths = require('./paths');
 
 const htmlPluginConfig = {
     inject: true,
-    template: path.resolve(srcDir, 'Application', 'index.html'),
-    favicon: path.resolve(srcDir, 'Application', "favicon.ico"),
+    template: paths.htmlPluginTemplate,
+    favicon: paths.favIcon,
     minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -52,9 +49,9 @@ const uglifyJsPluginConfig = {
 module.exports = {
     devtool: false,
     bail: true,
-    entry: path.join(srcDir, 'Application', 'index.jsx'),
+    entry: paths.entry,
     output: {
-        path: buildPath,
+        path: paths.buildPath,
         publicPath: '/',
         filename: '[name].[chunkhash:8].js',
         chunkFilename: '[name].[chunkhash:8].chunk.js',
@@ -66,12 +63,12 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
-                include: srcDir,
+                include: paths.src,
                 loader: 'babel-loader',
             },
             {
                 test: /\.?scss$/,
-                include: srcDir,
+                include: paths.src,
                 loader: ExtractTextPlugin.extract({
                     loader: ['css-loader', 'sass-loader', 'postcss-loader'],
                     fallbackLoader: 'style-loader',
@@ -81,7 +78,7 @@ module.exports = {
     },
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
-        new CopyWebpackPlugin([{from: path.join(srcDir, 'public'), to: buildPath}]),
+        new CopyWebpackPlugin([{from: paths.publicAssets, to: paths.buildPath}]),
         new ExtractTextPlugin({filename: '[name].[contenthash:8].css', allChunks: true}),
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
