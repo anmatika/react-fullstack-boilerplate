@@ -1,6 +1,6 @@
 ## 0.9.1 (25.01.17)
 *  Extract paths in webpack config to separate file, share values between scripts
-*  Move all .rc config files to package.json or /config folder
+*  Move all config files (sans postcss config) files to package.json or /config folder
 
 ## 0.9.0 (14.01.17)
 *  Use extract-text-webpack-plugin to extract all css to separate CSS bundle
