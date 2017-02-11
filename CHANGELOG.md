@@ -1,3 +1,7 @@
+## 0.10.0 (11.02.17)
+*  Add support for unit and integration tests with Mocha & Chai
+*  Added example unit and integration tests
+
 ## 0.9.1 (25.01.17)
 *  Extract paths in webpack config to separate file, share values between scripts
 *  Move all config files (sans postcss config) files to package.json or /config folder
