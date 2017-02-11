@@ -8,6 +8,7 @@ React & Redux on the client-side.
 *  Complete skeleton for full-stack progressive web application development
 *  Preconfigured to support PWA features
 *  Both API and bundle served from same port
+*  Unit and integration test setup
 *  Builds (and optionally hosts) production-ready static assets in one command
 *  Redux with thunk, redux-pack and DevTools chrome plugin integration
 *  React Hot Loader 3
@@ -72,6 +73,7 @@ about your bundle's contents.
 *  server rendering
 
 ## Done
+*  ~~Unit and integration tests with Mocha & Chai~~
 *  ~~autoprefixer~~
 *  ~~Demonstrate basic client/server interaction~~
 *  ~~Sass support~~
