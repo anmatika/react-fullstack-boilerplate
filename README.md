@@ -49,6 +49,7 @@ Upload it to a tool like [webpack analyse][1] or [webpack visualizer][2] to get 
 about your bundle's contents.
 
 ## To-do:
+*  (Hot) reload server-side changes
 *  CSS modules ([full][4], [babel plugin][5])
 *  add fetch and other required polyfills [only for browsers that need it][3]
 *  Consider switching React with Preact in production
